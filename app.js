@@ -14,7 +14,23 @@ var weatherRouter = require('./routes/weather');
 var app = express();
 
 const cors = require('cors');
-app.use(cors());
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      "http://127.0.0.1:5501/frontend",
+    ];
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.use(cors(corsOptions));
 
 app.use(logger('dev'));
 app.use(express.json());
