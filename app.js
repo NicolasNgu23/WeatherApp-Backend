@@ -19,6 +19,9 @@ const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
       "http://127.0.0.1:5501/frontend",
+      "http://127.0.0.1:5501/",
+      "http://localhost:5501/frontend",
+      "http://localhost:5501/",
     ];
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
