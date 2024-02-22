@@ -16,7 +16,7 @@ var app = express();
 const cors = require('cors');
 
 const corsOptions = {
-  origin: "http://127.0.0.1:5501/",
+  origin: "https://weather-app-frontend-gamma.vercel.app/",
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
