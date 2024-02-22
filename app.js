@@ -16,19 +16,7 @@ var app = express();
 const cors = require('cors');
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      "http://127.0.0.1:5501/frontend",
-      "http://127.0.0.1:5501/",
-      "http://localhost:5501/frontend",
-      "http://localhost:5501/",
-    ];
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "http://127.0.0.1:5501/",
   allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"],
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
